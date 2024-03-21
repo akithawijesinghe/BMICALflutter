@@ -9,6 +9,10 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  int height = 150;
+  int weight = 60;
+  late double bmi = calculateBMI(height: height, weight: weight);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,6 +28,7 @@ class _MainPageState extends State<MainPage> {
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
                       children: const [
+                        //const SizedBox(height: 30),
                         Icon(Icons.male, size: 150),
                         Text("Male"),
                       ],
@@ -51,11 +56,18 @@ class _MainPageState extends State<MainPage> {
                         const Text(
                           "Height",
                         ),
-                        const Text("176", style: kinputLableColor),
+                        Text("$height", style: kinputLableColor),
                         Row(
                           children: [
                             FloatingActionButton(
-                              onPressed: onHeightMinus,
+                              onPressed: () {
+                                setState(() {
+                                  if (height > 80) height--;
+                                  bmi = calculateBMI(
+                                      height: height, weight: weight);
+                                });
+                                print("height");
+                              },
                               child: Icon(
                                 Icons.remove,
                                 size: 40,
@@ -63,7 +75,14 @@ class _MainPageState extends State<MainPage> {
                             ),
                             const SizedBox(width: 25),
                             FloatingActionButton(
-                                onPressed: null,
+                                onPressed: () {
+                                  setState(() {
+                                    if (height < 200) height++;
+                                    bmi = calculateBMI(
+                                        height: height, weight: weight);
+                                  });
+                                  print("height");
+                                },
                                 child: Icon(
                                   Icons.add,
                                   size: 40,
@@ -81,11 +100,17 @@ class _MainPageState extends State<MainPage> {
                         const Text(
                           "Weight",
                         ),
-                        const Text("76", style: kinputLableColor),
+                        Text("$weight", style: kinputLableColor),
                         Row(
                           children: [
                             FloatingActionButton(
-                              onPressed: null,
+                              onPressed: () {
+                                setState(() {
+                                  if (weight > 20) weight--;
+                                  bmi = calculateBMI(
+                                      height: height, weight: weight);
+                                });
+                              },
                               child: Icon(
                                 Icons.remove,
                                 size: 40,
@@ -93,7 +118,13 @@ class _MainPageState extends State<MainPage> {
                             ),
                             const SizedBox(width: 25),
                             FloatingActionButton(
-                                onPressed: null,
+                                onPressed: () {
+                                  setState(() {
+                                    if (weight < 120) weight++;
+                                    bmi = calculateBMI(
+                                        height: height, weight: weight);
+                                  });
+                                },
                                 child: Icon(
                                   Icons.add,
                                   size: 40,
@@ -108,11 +139,15 @@ class _MainPageState extends State<MainPage> {
               SizedBox(height: 50),
               Column(
                 children: [
-                  Text("BMI"),
+                  const Text("BMI"),
                   Text(
-                    "225.25",
+                    "${bmi.toStringAsFixed(2)}",
                     style: kinputLableColor,
-                  )
+                  ),
+                  Text(
+                    getResult(bmi),
+                    style: kinputLable2Color,
+                  ),
                 ],
               )
             ],
@@ -123,6 +158,20 @@ class _MainPageState extends State<MainPage> {
   }
 
   void onHeightMinus() {
-    print("H M");
+    print("Height Minus");
+  }
+
+  double calculateBMI({required height, required int weight}) {
+    return (weight / (height * height)) * 10000;
+  }
+
+  String getResult(bmiValue) {
+    if (bmiValue >= 25) {
+      return "OverWeight";
+    } else if (bmiValue >= 18.5) {
+      return "Normal";
+    } else {
+      return "UnderWeight";
+    }
   }
 }
