@@ -9,3 +9,21 @@ const kinputLableColor =
 
 const kinputLable2Color =
     TextStyle(color: ktext3Color, fontSize: 30, fontWeight: FontWeight.bold);
+
+const kHeading = TextStyle(
+    color: Color.fromARGB(255, 0, 4, 7),
+    fontSize: 30,
+    fontWeight: FontWeight.bold,
+    fontFamily: "Serif");
+
+const hewecolor = TextStyle(
+  color: Color.fromRGBO(46, 53, 59, 1),
+  fontSize: 50,
+  fontWeight: FontWeight.bold,
+);
+
+const subheading = TextStyle(
+    color: Color.fromARGB(255, 0, 4, 7),
+    fontSize: 20,
+    fontWeight: FontWeight.w500,
+    fontFamily: "Candara");

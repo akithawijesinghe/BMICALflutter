@@ -18,125 +18,191 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          color: Colors.white,
+          //height: 50,
+          //width: 50,
+          color: Color.fromARGB(255, 255, 255, 255),
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Column(
             children: [
+              Text(
+                "BMI Calculator",
+                style: kHeading,
+              ),
+              //const SizedBox(height: 20),
               Row(
                 children: [
+                  const SizedBox(width: 10),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      children: const [
-                        //const SizedBox(height: 30),
-                        Icon(Icons.male, size: 150),
-                        Text("Male"),
-                      ],
+                    child: Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Color.fromARGB(255, 0, 0, 0)),
+                        borderRadius: BorderRadius.all(Radius.circular(25.0)),
+                      ),
+                      child: Column(
+                        children: const [
+                          //const SizedBox(height: 30),
+                          Icon(Icons.male, size: 150),
+                          Text(
+                            "Male",
+                            style: subheading,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                  const Spacer(),
+                  const SizedBox(width: 20),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      children: const [
-                        Icon(Icons.female, size: 150),
-                        Text("Female"),
-                      ],
+                    child: Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.black),
+                        color: (Color.fromARGB(255, 87, 193, 222)),
+                        borderRadius: BorderRadius.all(Radius.circular(25.0)),
+                      ),
+                      child: Column(
+                        children: const [
+                          Icon(Icons.female, size: 150),
+                          Text(
+                            "Female",
+                            style: subheading,
+                          ),
+                        ],
+                      ),
                     ),
                   )
                 ],
               ),
-              const SizedBox(height: 50),
+              const SizedBox(height: 20),
               Row(
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      children: [
-                        const Text(
-                          "Height",
-                        ),
-                        Text("$height", style: kinputLableColor),
-                        Row(
-                          children: [
-                            FloatingActionButton(
-                              onPressed: () {
-                                setState(() {
-                                  if (height > 80) height--;
-                                  bmi = calculateBMI(
-                                      height: height, weight: weight);
-                                });
-                                print("height");
-                              },
-                              child: Icon(
-                                Icons.remove,
-                                size: 40,
-                              ),
-                            ),
-                            const SizedBox(width: 25),
-                            FloatingActionButton(
+                    child: Container(
+                      width: 170, // Set the width to 100 pixels
+                      height: 180,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Color.fromARGB(255, 0, 0, 0)),
+                        borderRadius: BorderRadius.all(Radius.circular(25.0)),
+                      ),
+                      child: Column(
+                        children: [
+                          const Text(
+                            "Height",
+                            style: subheading,
+                          ),
+                          Text("$height", style: hewecolor),
+                          Row(
+                            children: [
+                              const SizedBox(width: 10),
+                              FloatingActionButton(
+                                backgroundColor:
+                                    Color.fromARGB(255, 64, 169, 201),
                                 onPressed: () {
                                   setState(() {
-                                    if (height < 200) height++;
+                                    if (height > 80) height--;
                                     bmi = calculateBMI(
                                         height: height, weight: weight);
                                   });
                                   print("height");
                                 },
                                 child: Icon(
-                                  Icons.add,
+                                  Icons.remove,
+                                  color: Colors.white,
                                   size: 40,
-                                )),
-                          ],
-                        ),
-                      ],
+                                ),
+                              ),
+                              const SizedBox(width: 35),
+                              FloatingActionButton(
+                                  backgroundColor:
+                                      Color.fromARGB(255, 64, 169, 201),
+                                  onPressed: () {
+                                    setState(() {
+                                      if (height < 200) height++;
+                                      bmi = calculateBMI(
+                                          height: height, weight: weight);
+                                    });
+                                    print("height");
+                                  },
+                                  child: Icon(
+                                    Icons.add,
+                                    color: Colors.white,
+                                    size: 40,
+                                  )),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   const Spacer(),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      children: [
-                        const Text(
-                          "Weight",
-                        ),
-                        Text("$weight", style: kinputLableColor),
-                        Row(
-                          children: [
-                            FloatingActionButton(
-                              onPressed: () {
-                                setState(() {
-                                  if (weight > 20) weight--;
-                                  bmi = calculateBMI(
-                                      height: height, weight: weight);
-                                });
-                              },
-                              child: Icon(
-                                Icons.remove,
-                                size: 40,
-                              ),
-                            ),
-                            const SizedBox(width: 25),
-                            FloatingActionButton(
+                    child: Container(
+                      width: 170, // Set the width to 100 pixels
+                      height: 180,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.black),
+                        borderRadius: BorderRadius.all(Radius.circular(25.0)),
+                      ),
+                      child: Column(
+                        children: [
+                          const Text(
+                            "Weight",
+                            style: subheading,
+                          ),
+                          Text("$weight", style: hewecolor),
+                          Row(
+                            children: [
+                              const SizedBox(width: 10),
+                              FloatingActionButton(
+                                backgroundColor:
+                                    Color.fromARGB(255, 64, 169, 201),
                                 onPressed: () {
                                   setState(() {
-                                    if (weight < 120) weight++;
+                                    if (weight > 20) weight--;
                                     bmi = calculateBMI(
                                         height: height, weight: weight);
                                   });
                                 },
                                 child: Icon(
-                                  Icons.add,
+                                  Icons.remove,
+                                  color: Colors.white,
                                   size: 40,
-                                )),
-                          ],
-                        ),
-                      ],
+                                ),
+                              ),
+                              const SizedBox(width: 35),
+                              FloatingActionButton(
+                                  backgroundColor:
+                                      Color.fromARGB(255, 64, 169, 201),
+                                  onPressed: () {
+                                    setState(() {
+                                      if (weight < 120) weight++;
+                                      bmi = calculateBMI(
+                                          height: height, weight: weight);
+                                    });
+                                  },
+                                  child: Icon(
+                                    Icons.add,
+                                    color: Colors.white,
+                                    size: 40,
+                                  )),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 50),
+              SizedBox(height: 20),
+
+              FloatingActionButton(
+                
+                backgroundColor: Color.fromARGB(255, 64, 169, 201),
+                onPressed: null,
+              ),
+
               Column(
                 children: [
                   const Text("BMI"),
