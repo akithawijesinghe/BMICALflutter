@@ -12,6 +12,7 @@ class _MainPageState extends State<MainPage> {
   int height = 150;
   int weight = 60;
   bool isMaleSelected = false;
+  bool isFemaleSelected = false;
   late double bmi = calculateBMI(height: height, weight: weight);
 
   @override
@@ -39,7 +40,8 @@ class _MainPageState extends State<MainPage> {
                   InkWell(
                     onTap: () {
                       setState(() {
-                        isMaleSelected = !isMaleSelected;
+                        isMaleSelected = true;
+                        isFemaleSelected = false;
                       });
                     },
                     child: Padding(
@@ -50,7 +52,8 @@ class _MainPageState extends State<MainPage> {
                               Border.all(color: Color.fromARGB(255, 0, 0, 0)),
                           borderRadius: BorderRadius.all(Radius.circular(25.0)),
                           color: (isMaleSelected
-                              ? Colors.red
+                              ? Color.fromARGB(255, 87, 193,
+                                  222) //color: (Color.fromARGB(255, 87, 193, 222)),
                               : Colors.transparent),
                         ),
                         child: Column(
@@ -67,22 +70,33 @@ class _MainPageState extends State<MainPage> {
                     ),
                   ),
                   const Spacer(),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black),
-                        color: (Color.fromARGB(255, 87, 193, 222)),
-                        borderRadius: BorderRadius.all(Radius.circular(25.0)),
-                      ),
-                      child: Column(
-                        children: const [
-                          Icon(Icons.female, size: 150),
-                          Text(
-                            "Female",
-                            style: subheading,
-                          ),
-                        ],
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        isFemaleSelected = true;
+                        isMaleSelected = false;
+                      });
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black),
+                          //color: (Color.fromARGB(255, 87, 193, 222)),
+                          borderRadius: BorderRadius.all(Radius.circular(25.0)),
+                          color: (isFemaleSelected
+                              ? Color.fromARGB(255, 182, 113, 125) // Pink color
+                              : Colors.transparent),
+                        ),
+                        child: Column(
+                          children: const [
+                            Icon(Icons.female, size: 150),
+                            Text(
+                              "Female",
+                              style: subheading,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
