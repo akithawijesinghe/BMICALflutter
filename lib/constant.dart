@@ -25,5 +25,5 @@ const hewecolor = TextStyle(
 const subheading = TextStyle(
     color: Color.fromARGB(255, 0, 4, 7),
     fontSize: 20,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.bold,
     fontFamily: "Candara");

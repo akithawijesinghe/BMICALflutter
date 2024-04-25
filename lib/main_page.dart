@@ -48,8 +48,11 @@ class _MainPageState extends State<MainPage> {
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
                         decoration: BoxDecoration(
-                          border:
-                              Border.all(color: Color.fromARGB(255, 0, 0, 0)),
+                          border: Border.all(
+                            color: isFemaleSelected
+                                ? Color.fromARGB(255, 5, 5, 87)
+                                : Colors.black,
+                          ),
                           borderRadius: BorderRadius.all(Radius.circular(25.0)),
                           color: (isMaleSelected
                               ? Color.fromARGB(255, 87, 193,
@@ -81,9 +84,14 @@ class _MainPageState extends State<MainPage> {
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
                         decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black),
+                          border: Border.all(
+                            color: isFemaleSelected
+                                ? Color.fromARGB(255, 103, 46, 55)
+                                : Colors.black,
+                          ),
                           //color: (Color.fromARGB(255, 87, 193, 222)),
                           borderRadius: BorderRadius.all(Radius.circular(25.0)),
+
                           color: (isFemaleSelected
                               ? Color.fromARGB(255, 182, 113, 125) // Pink color
                               : Colors.transparent),
@@ -126,7 +134,7 @@ class _MainPageState extends State<MainPage> {
                               const SizedBox(width: 10),
                               FloatingActionButton(
                                 backgroundColor:
-                                    Color.fromARGB(255, 64, 169, 201),
+                                    Color.fromARGB(255, 35, 13, 108),
                                 onPressed: () {
                                   setState(() {
                                     if (height > 80) height--;
@@ -144,7 +152,7 @@ class _MainPageState extends State<MainPage> {
                               const SizedBox(width: 35),
                               FloatingActionButton(
                                   backgroundColor:
-                                      Color.fromARGB(255, 64, 169, 201),
+                                      Color.fromARGB(255, 35, 13, 108),
                                   onPressed: () {
                                     setState(() {
                                       if (height < 200) height++;
@@ -186,7 +194,7 @@ class _MainPageState extends State<MainPage> {
                               const SizedBox(width: 10),
                               FloatingActionButton(
                                 backgroundColor:
-                                    Color.fromARGB(255, 64, 169, 201),
+                                    Color.fromARGB(255, 35, 13, 108),
                                 onPressed: () {
                                   setState(() {
                                     if (weight > 20) weight--;
@@ -203,7 +211,7 @@ class _MainPageState extends State<MainPage> {
                               const SizedBox(width: 35),
                               FloatingActionButton(
                                   backgroundColor:
-                                      Color.fromARGB(255, 64, 169, 201),
+                                      Color.fromARGB(255, 35, 13, 108),
                                   onPressed: () {
                                     setState(() {
                                       if (weight < 120) weight++;
