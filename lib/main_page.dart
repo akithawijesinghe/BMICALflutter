@@ -11,10 +11,14 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int height = 150;
   int weight = 60;
+  bool isMaleSelected = false;
   late double bmi = calculateBMI(height: height, weight: weight);
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -32,26 +36,37 @@ class _MainPageState extends State<MainPage> {
               Row(
                 children: [
                   const SizedBox(width: 10),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Color.fromARGB(255, 0, 0, 0)),
-                        borderRadius: BorderRadius.all(Radius.circular(25.0)),
-                      ),
-                      child: Column(
-                        children: const [
-                          //const SizedBox(height: 30),
-                          Icon(Icons.male, size: 150),
-                          Text(
-                            "Male",
-                            style: subheading,
-                          ),
-                        ],
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        isMaleSelected = !isMaleSelected;
+                      });
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          border:
+                              Border.all(color: Color.fromARGB(255, 0, 0, 0)),
+                          borderRadius: BorderRadius.all(Radius.circular(25.0)),
+                          color: (isMaleSelected
+                              ? Colors.red
+                              : Colors.transparent),
+                        ),
+                        child: Column(
+                          children: const [
+                            //const SizedBox(height: 30),
+                            Icon(Icons.male, size: 150),
+                            Text(
+                              "Male",
+                              style: subheading,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                  const SizedBox(width: 20),
+                  const Spacer(),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
@@ -70,7 +85,7 @@ class _MainPageState extends State<MainPage> {
                         ],
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
               const SizedBox(height: 20),
@@ -198,7 +213,6 @@ class _MainPageState extends State<MainPage> {
               SizedBox(height: 20),
 
               FloatingActionButton(
-                
                 backgroundColor: Color.fromARGB(255, 64, 169, 201),
                 onPressed: null,
               ),
