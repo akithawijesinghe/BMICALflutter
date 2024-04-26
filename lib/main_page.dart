@@ -246,10 +246,7 @@ class _MainPageState extends State<MainPage> {
                     "${bmi.toStringAsFixed(2)}",
                     style: kinputLableColor,
                   ),
-                  Text(
-                    getResult(bmi),
-                    style: kinputLable2Color,
-                  ),
+                  getResult(bmi),
                 ],
               )
             ],
@@ -267,13 +264,28 @@ class _MainPageState extends State<MainPage> {
     return (weight / (height * height)) * 10000;
   }
 
-  String getResult(bmiValue) {
+  Widget getResult(double bmiValue) {
+    String resultText;
+    Color resultColor;
+
     if (bmiValue >= 25) {
-      return "OverWeight";
+      resultText = "OverWeight";
+      resultColor = const Color.fromARGB(255, 181, 41, 31);
     } else if (bmiValue >= 18.5) {
-      return "Normal";
+      resultText = "Normal";
+      resultColor = const Color.fromARGB(255, 17, 97, 20);
     } else {
-      return "UnderWeight";
+      resultText = "UnderWeight";
+      resultColor = const Color.fromARGB(255, 243, 149, 8);
     }
+
+    return Text(
+      resultText,
+      style: TextStyle(
+        color: resultColor,
+        fontSize: 18,
+        fontWeight: FontWeight.bold,
+      ),
+    );
   }
 }
