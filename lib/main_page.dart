@@ -1,5 +1,5 @@
-import 'package:bmicalculator/constant.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterbmi/constant.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
