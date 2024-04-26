@@ -62,6 +62,7 @@ class _MainPageState extends State<MainPage> {
                         child: Column(
                           children: const [
                             //const SizedBox(height: 30),
+
                             Icon(Icons.male, size: 150),
                             Text(
                               "Male",
