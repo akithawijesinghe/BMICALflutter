@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterbmi/constant.dart';
+import 'package:flutterbmi/result_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -16,6 +17,18 @@ class _MainPageState extends State<MainPage> {
   bool isCalculateselect = false;
   late double bmi = calculateBMI(height: height, weight: weight);
 
+  void calculateBMIAndNavigate() {
+    setState(() {
+      bmi = calculateBMI(height: height, weight: weight);
+    });
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ResultPage(bmi: bmi),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -30,11 +43,12 @@ class _MainPageState extends State<MainPage> {
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Column(
             children: [
+              SizedBox(height: 20),
               Text(
                 "BMI Calculator",
                 style: kHeading,
               ),
-              //const SizedBox(height: 20),
+              const SizedBox(height: 20),
               Row(
                 children: [
                   const SizedBox(width: 10),
@@ -63,7 +77,6 @@ class _MainPageState extends State<MainPage> {
                         child: Column(
                           children: const [
                             //const SizedBox(height: 30),
-
                             Icon(Icons.male, size: 150),
                             Text(
                               "Male",
@@ -112,7 +125,7 @@ class _MainPageState extends State<MainPage> {
                   ),
                 ],
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 40),
               Row(
                 children: [
                   Padding(
@@ -150,24 +163,27 @@ class _MainPageState extends State<MainPage> {
                                   color: Colors.white,
                                   size: 40,
                                 ),
+                                shape: CircleBorder(),
                               ),
                               const SizedBox(width: 35),
                               FloatingActionButton(
-                                  backgroundColor:
-                                      Color.fromARGB(255, 35, 13, 108),
-                                  onPressed: () {
-                                    setState(() {
-                                      if (height < 200) height++;
-                                      bmi = calculateBMI(
-                                          height: height, weight: weight);
-                                    });
-                                    print("height");
-                                  },
-                                  child: Icon(
-                                    Icons.add,
-                                    color: Colors.white,
-                                    size: 40,
-                                  )),
+                                backgroundColor:
+                                    Color.fromARGB(255, 35, 13, 108),
+                                onPressed: () {
+                                  setState(() {
+                                    if (height < 200) height++;
+                                    bmi = calculateBMI(
+                                        height: height, weight: weight);
+                                  });
+                                  print("height");
+                                },
+                                child: Icon(
+                                  Icons.add,
+                                  color: Colors.white,
+                                  size: 40,
+                                ),
+                                shape: CircleBorder(),
+                              ),
                             ],
                           ),
                         ],
@@ -209,23 +225,26 @@ class _MainPageState extends State<MainPage> {
                                   color: Colors.white,
                                   size: 40,
                                 ),
+                                shape: CircleBorder(),
                               ),
                               const SizedBox(width: 35),
                               FloatingActionButton(
-                                  backgroundColor:
-                                      Color.fromARGB(255, 35, 13, 108),
-                                  onPressed: () {
-                                    setState(() {
-                                      if (weight < 120) weight++;
-                                      bmi = calculateBMI(
-                                          height: height, weight: weight);
-                                    });
-                                  },
-                                  child: Icon(
-                                    Icons.add,
-                                    color: Colors.white,
-                                    size: 40,
-                                  )),
+                                backgroundColor:
+                                    Color.fromARGB(255, 35, 13, 108),
+                                onPressed: () {
+                                  setState(() {
+                                    if (weight < 120) weight++;
+                                    bmi = calculateBMI(
+                                        height: height, weight: weight);
+                                  });
+                                },
+                                child: Icon(
+                                  Icons.add,
+                                  color: Colors.white,
+                                  size: 40,
+                                ),
+                                shape: CircleBorder(),
+                              ),
                             ],
                           ),
                         ],
@@ -234,18 +253,11 @@ class _MainPageState extends State<MainPage> {
                   ),
                 ],
               ),
-              SizedBox(height: 20),
-
+              SizedBox(height: 50),
               ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    isCalculateselect = true;
-                  }); // Add your button functionality here
-                },
+                onPressed: calculateBMIAndNavigate,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: isCalculateselect
-                      ? Color.fromARGB(255, 34, 62, 187)
-                      : Color.fromARGB(255, 98, 119, 213),
+                  backgroundColor: Color.fromARGB(255, 64, 169, 201),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20.0),
                   ),
@@ -256,27 +268,12 @@ class _MainPageState extends State<MainPage> {
                   'Calculate BMI',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 25.0,
+                    fontSize: 30.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
-
               const SizedBox(height: 5),
-
-              Column(
-                children: [
-                  const Text(
-                    "Your BMI is ",
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    "${bmi.toStringAsFixed(2)}",
-                    style: kinputLableColor,
-                  ),
-                  getResult(bmi),
-                ],
-              )
             ],
           ),
         ),
@@ -290,30 +287,5 @@ class _MainPageState extends State<MainPage> {
 
   double calculateBMI({required height, required int weight}) {
     return (weight / (height * height)) * 10000;
-  }
-
-  Widget getResult(double bmiValue) {
-    String resultText;
-    Color resultColor;
-
-    if (bmiValue >= 25) {
-      resultText = "OverWeight";
-      resultColor = const Color.fromARGB(255, 181, 41, 31);
-    } else if (bmiValue >= 18.5) {
-      resultText = "Normal";
-      resultColor = const Color.fromARGB(255, 17, 97, 20);
-    } else {
-      resultText = "UnderWeight";
-      resultColor = const Color.fromARGB(255, 243, 149, 8);
-    }
-
-    return Text(
-      resultText,
-      style: TextStyle(
-        color: resultColor,
-        fontSize: 25,
-        fontWeight: FontWeight.bold,
-      ),
-    );
   }
 }
