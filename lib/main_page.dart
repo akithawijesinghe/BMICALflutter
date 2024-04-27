@@ -13,6 +13,7 @@ class _MainPageState extends State<MainPage> {
   int weight = 60;
   bool isMaleSelected = false;
   bool isFemaleSelected = false;
+  bool isCalculateselect = false;
   late double bmi = calculateBMI(height: height, weight: weight);
 
   @override
@@ -237,10 +238,14 @@ class _MainPageState extends State<MainPage> {
 
               ElevatedButton(
                 onPressed: () {
-                  // Add your button functionality here
+                  setState(() {
+                    isCalculateselect = true;
+                  }); // Add your button functionality here
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color.fromARGB(255, 52, 79, 202),
+                  backgroundColor: isCalculateselect
+                      ? Color.fromARGB(255, 34, 62, 187)
+                      : Color.fromARGB(255, 52, 79, 202),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20.0),
                   ),
@@ -306,7 +311,7 @@ class _MainPageState extends State<MainPage> {
       resultText,
       style: TextStyle(
         color: resultColor,
-        fontSize: 18,
+        fontSize: 25,
         fontWeight: FontWeight.bold,
       ),
     );
