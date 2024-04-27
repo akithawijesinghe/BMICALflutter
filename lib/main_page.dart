@@ -245,7 +245,7 @@ class _MainPageState extends State<MainPage> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: isCalculateselect
                       ? Color.fromARGB(255, 34, 62, 187)
-                      : Color.fromARGB(255, 52, 79, 202),
+                      : Color.fromARGB(255, 98, 119, 213),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20.0),
                   ),
@@ -262,7 +262,7 @@ class _MainPageState extends State<MainPage> {
                 ),
               ),
 
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
 
               Column(
                 children: [
