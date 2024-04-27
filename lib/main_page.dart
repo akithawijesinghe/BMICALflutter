@@ -235,14 +235,36 @@ class _MainPageState extends State<MainPage> {
               ),
               SizedBox(height: 20),
 
-              FloatingActionButton(
-                backgroundColor: Color.fromARGB(255, 64, 169, 201),
-                onPressed: null,
+              ElevatedButton(
+                onPressed: () {
+                  // Add your button functionality here
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color.fromARGB(255, 52, 79, 202),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+                ),
+                child: Text(
+                  'Calculate BMI',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 25.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
+
+              SizedBox(height: 5),
 
               Column(
                 children: [
-                  const Text("BMI"),
+                  const Text(
+                    "Your BMI is ",
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                  ),
                   Text(
                     "${bmi.toStringAsFixed(2)}",
                     style: kinputLableColor,
