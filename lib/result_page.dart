@@ -36,7 +36,7 @@ class ResultPage extends StatelessWidget {
               Image.asset(
                 'assets/female_image.png', // Add the path to the male image asset
                 width: 300,
-                height: 400,
+                height: 300,
               ),
               SizedBox(height: 20),
               //SizedBox(height: 150),

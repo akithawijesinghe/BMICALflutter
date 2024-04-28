@@ -80,11 +80,12 @@ class _MainPageState extends State<MainPage> {
                             //Icon(Icons.male, size: 150),
                             ClipRRect(
                               borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(22.0),
-                                topRight: Radius.circular(22.0),
+                                topLeft: Radius.circular(23.0),
+                                topRight: Radius.circular(23.0),
                               ),
                               child: Image.asset(
-                                'assets/male_image1.png', // Add the path to the male image asset
+                                //sithija6371
+                                'assets/male_image2.jpg', // Add the path to the male image asset
                                 width: 140,
                                 height: 140,
                               ),
@@ -123,8 +124,19 @@ class _MainPageState extends State<MainPage> {
                               : Colors.transparent),
                         ),
                         child: Column(
-                          children: const [
-                            Icon(Icons.female, size: 150),
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(23.0),
+                                topRight: Radius.circular(23.0),
+                              ),
+                              child: Image.asset(
+                                'assets/female_image6.jpg',
+                                width: 140,
+                                height: 140,
+                              ),
+                            ),
+                            //Icon(Icons.female, size: 150),
                             Text(
                               "Female",
                               style: subheading,
