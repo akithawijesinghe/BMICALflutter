@@ -67,6 +67,7 @@ class _MainPageState extends State<MainPage> {
                             color: isFemaleSelected
                                 ? Color.fromARGB(255, 5, 5, 87)
                                 : Colors.black,
+                            width: isMaleSelected ? 3.5 : 1.5,
                           ),
                           borderRadius: BorderRadius.all(Radius.circular(25.0)),
                           color: (isMaleSelected
@@ -86,8 +87,8 @@ class _MainPageState extends State<MainPage> {
                               child: Image.asset(
                                 //sithija6371
                                 'assets/male_image2.jpg', // Add the path to the male image asset
-                                width: 140,
-                                height: 140,
+                                width: 150,
+                                height: 150,
                               ),
                             ),
                             Text(
@@ -115,6 +116,7 @@ class _MainPageState extends State<MainPage> {
                             color: isFemaleSelected
                                 ? Color.fromARGB(255, 103, 46, 55)
                                 : Colors.black,
+                            width: isFemaleSelected ? 3.5 : 1.5,
                           ),
                           //color: (Color.fromARGB(255, 87, 193, 222)),
                           borderRadius: BorderRadius.all(Radius.circular(25.0)),
@@ -132,8 +134,8 @@ class _MainPageState extends State<MainPage> {
                               ),
                               child: Image.asset(
                                 'assets/female_image6.jpg',
-                                width: 140,
-                                height: 140,
+                                width: 150,
+                                height: 150,
                               ),
                             ),
                             //Icon(Icons.female, size: 150),
@@ -164,7 +166,7 @@ class _MainPageState extends State<MainPage> {
                         children: [
                           const Text(
                             "Height",
-                            style: subheading,
+                            style: subheadinghw,
                           ),
                           Text("$height", style: hewecolor),
                           Row(
@@ -227,7 +229,7 @@ class _MainPageState extends State<MainPage> {
                         children: [
                           const Text(
                             "Weight",
-                            style: subheading,
+                            style: subheadinghw,
                           ),
                           Text("$weight", style: hewecolor),
                           Row(
