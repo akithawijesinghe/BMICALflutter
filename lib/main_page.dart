@@ -75,9 +75,20 @@ class _MainPageState extends State<MainPage> {
                               : Colors.transparent),
                         ),
                         child: Column(
-                          children: const [
+                          children: [
                             //const SizedBox(height: 30),
-                            Icon(Icons.male, size: 150),
+                            //Icon(Icons.male, size: 150),
+                            ClipRRect(
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(22.0),
+                                topRight: Radius.circular(22.0),
+                              ),
+                              child: Image.asset(
+                                'assets/male_image1.png', // Add the path to the male image asset
+                                width: 140,
+                                height: 140,
+                              ),
+                            ),
                             Text(
                               "Male",
                               style: subheading,
