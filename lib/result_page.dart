@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 class ResultPage extends StatelessWidget {
   final double bmi;
-  //final bool isMaleSelected;
+  final bool isMaleSelected;
 
-  ResultPage({required this.bmi});
+  ResultPage({required this.bmi, required this.isMaleSelected});
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,9 @@ class ResultPage extends StatelessWidget {
             children: [
               SizedBox(height: 20),
               Image.asset(
-                'assets/female_image.png', // Add the path to the male image asset
+                isMaleSelected
+                    ? 'assets/male_image9.jpg'
+                    : 'assets/female_image9.jpg', // Add the path to the male image asset
                 width: 300,
                 height: 300,
               ),
@@ -47,15 +49,16 @@ class ResultPage extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 16.0),
+              SizedBox(height: 5.0),
               Text(
                 bmi.toStringAsFixed(2),
-                style: TextStyle(
-                  fontSize: 36.0,
+                style: const TextStyle(
+                  fontSize: 50.0,
                   fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255, 35, 13, 108),
                 ),
               ),
-              SizedBox(height: 16.0),
+              SizedBox(height: 5.0),
               Text(
                 bmiStatus,
                 style: TextStyle(

@@ -24,7 +24,8 @@ class _MainPageState extends State<MainPage> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => ResultPage(bmi: bmi),
+        builder: (context) =>
+            ResultPage(bmi: bmi, isMaleSelected: isMaleSelected),
       ),
     );
   }
@@ -282,9 +283,10 @@ class _MainPageState extends State<MainPage> {
               ElevatedButton(
                 onPressed: calculateBMIAndNavigate,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color.fromARGB(255, 64, 169, 201),
+                  backgroundColor: Color.fromARGB(255, 255, 255, 255),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20.0),
+                    side: BorderSide(color: Colors.black, width: 2.0),
                   ),
                   padding:
                       EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
@@ -292,7 +294,7 @@ class _MainPageState extends State<MainPage> {
                 child: Text(
                   'Calculate BMI',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Color.fromARGB(255, 35, 13, 108),
                     fontSize: 30.0,
                     fontWeight: FontWeight.bold,
                   ),
