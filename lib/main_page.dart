@@ -38,18 +38,26 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          //height: 50,
-          //width: 50,
           color: Color.fromARGB(255, 255, 255, 255),
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Column(
             children: [
               SizedBox(height: 20),
-              Text(
-                "BMI Calculator",
-                style: kHeading,
+              Container(
+                color: Colors.blue,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "BMI Calculator",
+                      style: kHeading,
+                    ),
+                  ],
+                ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 30),
               Row(
                 children: [
                   const SizedBox(width: 10),
