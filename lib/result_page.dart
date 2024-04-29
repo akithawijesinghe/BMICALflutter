@@ -62,7 +62,7 @@ class ResultPage extends StatelessWidget {
               Text(
                 bmiStatus,
                 style: TextStyle(
-                  fontSize: 24.0,
+                  fontSize: 30.0,
                   fontWeight: FontWeight.bold,
                   color: bmiStatusColor,
                 ),

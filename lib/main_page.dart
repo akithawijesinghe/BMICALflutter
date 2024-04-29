@@ -44,7 +44,11 @@ class _MainPageState extends State<MainPage> {
             children: [
               SizedBox(height: 20),
               Container(
-                color: Colors.blue,
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius:
+                      BorderRadius.circular(15.0), // Add border radius here
+                ),
                 padding:
                     const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                 child: Row(
