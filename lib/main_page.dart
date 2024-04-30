@@ -186,6 +186,10 @@ class _MainPageState extends State<MainPage> {
                             " cm",
                             style: subheadinghw, // Style for the unit "cm"
                           ),
+                          Text(
+                            " kg",
+                            style: subheadinghw, // Style for the unit "kg"
+                          ),
                           Row(
                             children: [
                               const SizedBox(width: 10),
