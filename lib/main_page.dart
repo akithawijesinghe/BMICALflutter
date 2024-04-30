@@ -182,6 +182,10 @@ class _MainPageState extends State<MainPage> {
                             style: subheadinghw,
                           ),
                           Text("$height", style: hewecolor),
+                          Text(
+                            " cm",
+                            style: subheadinghw, // Style for the unit "cm"
+                          ),
                           Row(
                             children: [
                               const SizedBox(width: 10),
@@ -240,9 +244,13 @@ class _MainPageState extends State<MainPage> {
                       ),
                       child: Column(
                         children: [
-                          const Text(
+                          Text(
                             "Weight",
                             style: subheadinghw,
+                          ),
+                          Text(
+                            " cm",
+                            style: subheadinghw, // Style for the unit "cm"
                           ),
                           Text("$weight", style: hewecolor),
                           Row(
