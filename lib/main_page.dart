@@ -184,11 +184,7 @@ class _MainPageState extends State<MainPage> {
                           Text("$height", style: hewecolor),
                           Text(
                             " cm",
-                            style: subheadinghw, // Style for the unit "cm"
-                          ),
-                          Text(
-                            " kg",
-                            style: subheadinghw, // Style for the unit "kg"
+                            style: subheadinghwj, // Style for the unit "cm"
                           ),
                           Row(
                             children: [
@@ -254,7 +250,7 @@ class _MainPageState extends State<MainPage> {
                           ),
                           Text(
                             " cm",
-                            style: subheadinghw, // Style for the unit "cm"
+                            style: subheadinghwj, // Style for the unit "cm"
                           ),
                           Text("$weight", style: hewecolor),
                           Row(
