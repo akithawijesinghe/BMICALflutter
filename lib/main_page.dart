@@ -64,7 +64,7 @@ class _MainPageState extends State<MainPage> {
               const SizedBox(height: 30),
               Row(
                 children: [
-                  const SizedBox(width: 10),
+                  const SizedBox(width: 3),
                   InkWell(
                     onTap: () {
                       setState(() {
@@ -100,8 +100,8 @@ class _MainPageState extends State<MainPage> {
                               child: Image.asset(
                                 //sithija6371
                                 'assets/male_image2.jpg', // Add the path to the male image asset
-                                width: 150,
-                                height: 150,
+                                width: 160,
+                                height: 157.5,
                               ),
                             ),
                             Text(
@@ -147,8 +147,8 @@ class _MainPageState extends State<MainPage> {
                               ),
                               child: Image.asset(
                                 'assets/female_image6.jpg',
-                                width: 150,
-                                height: 150,
+                                width: 160,
+                                height: 157.5,
                               ),
                             ),
                             //Icon(Icons.female, size: 150),
@@ -250,7 +250,7 @@ class _MainPageState extends State<MainPage> {
                             style: subheadinghw,
                           ),
                           Text("$weight", style: hewecolor),
-                          Text(
+                          const Text(
                             "Kg",
                             style: subheadinghwj, // Style for the unit "cm"
                           ),
@@ -290,7 +290,7 @@ class _MainPageState extends State<MainPage> {
                                   color: Colors.white,
                                   size: 40,
                                 ),
-                                shape: CircleBorder(),
+                                shape: const CircleBorder(),
                               ),
                             ],
                           ),
@@ -312,7 +312,7 @@ class _MainPageState extends State<MainPage> {
                   padding:
                       EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
                 ),
-                child: Text(
+                child: const Text(
                   'Calculate BMI',
                   style: TextStyle(
                     color: Color.fromARGB(255, 35, 13, 108),
