@@ -170,7 +170,7 @@ class _MainPageState extends State<MainPage> {
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
                       width: 170, // Set the width to 100 pixels
-                      height: 180,
+                      height: 200,
                       decoration: BoxDecoration(
                         border: Border.all(color: Color.fromARGB(255, 0, 0, 0)),
                         borderRadius: BorderRadius.all(Radius.circular(25.0)),
@@ -182,10 +182,11 @@ class _MainPageState extends State<MainPage> {
                             style: subheadinghw,
                           ),
                           Text("$height", style: hewecolor),
+                          // Add spacing between the value and the unit
                           Text(
-                            " cm",
+                            "Cm",
                             style: subheadinghwj, // Style for the unit "cm"
-                          ),
+                          ), // Add spacing between the value and the unit
                           Row(
                             children: [
                               const SizedBox(width: 10),
@@ -237,22 +238,22 @@ class _MainPageState extends State<MainPage> {
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
                       width: 170, // Set the width to 100 pixels
-                      height: 180,
+                      height: 200,
                       decoration: BoxDecoration(
                         border: Border.all(color: Colors.black),
                         borderRadius: BorderRadius.all(Radius.circular(25.0)),
                       ),
                       child: Column(
                         children: [
-                          Text(
+                          const Text(
                             "Weight",
                             style: subheadinghw,
                           ),
+                          Text("$weight", style: hewecolor),
                           Text(
-                            " cm",
+                            "Kg",
                             style: subheadinghwj, // Style for the unit "cm"
                           ),
-                          Text("$weight", style: hewecolor),
                           Row(
                             children: [
                               const SizedBox(width: 10),
