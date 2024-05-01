@@ -23,52 +23,57 @@ class ResultPage extends StatelessWidget {
       bmiStatusColor = Colors.orange;
     }
 
-    //const SizedBox(height: 100);
     return Scaffold(
-        appBar: AppBar(
-          title: Text('BMI Result'),
+      appBar: AppBar(
+        title: Text('BMI Result'),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(height: 20),
-              Image.asset(
-                isMaleSelected
-                    ? 'assets/male_image9.jpg'
-                    : 'assets/female_image9.jpg', // Add the path to the male image asset
-                width: 300,
-                height: 300,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(height: 20),
+            Image.asset(
+              isMaleSelected
+                  ? 'assets/male_image9.jpg'
+                  : 'assets/female_image9.jpg',
+              width: 300,
+              height: 300,
+            ),
+            SizedBox(height: 20),
+            Text(
+              'Your BMI is:',
+              style: TextStyle(
+                fontSize: 24.0,
+                fontWeight: FontWeight.bold,
               ),
-              SizedBox(height: 20),
-              //SizedBox(height: 150),
-              Text(
-                'Your BMI is:',
-                style: TextStyle(
-                  fontSize: 24.0,
-                  fontWeight: FontWeight.bold,
-                ),
+            ),
+            SizedBox(height: 5.0),
+            Text(
+              bmi.toStringAsFixed(2),
+              style: const TextStyle(
+                fontSize: 50.0,
+                fontWeight: FontWeight.bold,
+                color: Color.fromARGB(255, 35, 13, 108),
               ),
-              SizedBox(height: 5.0),
-              Text(
-                bmi.toStringAsFixed(2),
-                style: const TextStyle(
-                  fontSize: 50.0,
-                  fontWeight: FontWeight.bold,
-                  color: Color.fromARGB(255, 35, 13, 108),
-                ),
+            ),
+            SizedBox(height: 5.0),
+            Text(
+              bmiStatus,
+              style: TextStyle(
+                fontSize: 30.0,
+                fontWeight: FontWeight.bold,
+                color: bmiStatusColor,
               ),
-              SizedBox(height: 5.0),
-              Text(
-                bmiStatus,
-                style: TextStyle(
-                  fontSize: 30.0,
-                  fontWeight: FontWeight.bold,
-                  color: bmiStatusColor,
-                ),
-              ),
-            ],
-          ),
-        ));
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

@@ -163,7 +163,7 @@ class _MainPageState extends State<MainPage> {
                   ),
                 ],
               ),
-              const SizedBox(height: 40),
+              const SizedBox(height: 30),
               Row(
                 children: [
                   Padding(
@@ -300,7 +300,7 @@ class _MainPageState extends State<MainPage> {
                   ),
                 ],
               ),
-              SizedBox(height: 50),
+              SizedBox(height: 40),
               ElevatedButton(
                 onPressed: calculateBMIAndNavigate,
                 style: ElevatedButton.styleFrom(
