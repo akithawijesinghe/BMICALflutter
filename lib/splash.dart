@@ -1,15 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutterbmi/main_page.dart';
 
-class splash
- extends StatelessWidget {
-  const splash
-  ({super.key});
+class Splash extends StatefulWidget {
+  const Splash({Key? key}) : super(key: key);
+
+  @override
+  State<Splash> createState() => _SplashState();
+}
+
+class __SplashState extends State<Splash> {
+  @override
+  void initState() {
+    super.initState();
+    _navigatetohome();
+  }
+
+  _navigatetohome() async {
+    await Future.delayed(Duration(milliseconds: 3000), () {});
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container (
+      body: Container(
         child: Text('This is Splash'),
       ),
     );
