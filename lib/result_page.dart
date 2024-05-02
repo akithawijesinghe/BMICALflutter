@@ -1,5 +1,6 @@
 // result_page.dart
 import 'package:flutter/material.dart';
+import 'package:flutterbmi/main_page.dart';
 
 class ResultPage extends StatelessWidget {
   final double bmi;
@@ -25,11 +26,11 @@ class ResultPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('BMI Result'),
+        title: Text('Home Page'),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: Icon(Icons.home, size: 30),
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.pop(context, MainPage());
           },
         ),
       ),
