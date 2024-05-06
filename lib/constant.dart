@@ -39,3 +39,9 @@ const subheadinghwj = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.bold,
     fontFamily: "Candara");
+
+    const subheadinghwjA = TextStyle(
+    color: Color.fromARGB(255, 0, 4, 7),
+    fontSize: 30,
+    fontWeight: FontWeight.bold,
+    fontFamily: "Candara");
