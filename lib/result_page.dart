@@ -6,7 +6,7 @@ class ResultPage extends StatelessWidget {
   final double bmi;
   final bool isMaleSelected;
 
-  ResultPage({required this.bmi, required this.isMaleSelected});
+  const ResultPage({required this.bmi, required this.isMaleSelected});
 
   @override
   Widget build(BuildContext context) {
@@ -26,9 +26,9 @@ class ResultPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home Page'),
+        title: const Text('Home Page'),
         leading: IconButton(
-          icon: Icon(Icons.home, size: 30),
+          icon: const Icon(Icons.home, size: 30),
           onPressed: () {
             Navigator.pop(context, MainPage());
           },
@@ -38,7 +38,7 @@ class ResultPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Image.asset(
               isMaleSelected
                   ? 'assets/male_image9.jpg'
