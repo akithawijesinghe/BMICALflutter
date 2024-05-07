@@ -82,7 +82,8 @@ class _MainPageState extends State<MainPage> {
                                 : Colors.black,
                             width: isMaleSelected ? 3.5 : 1.5,
                           ),
-                          borderRadius: BorderRadius.all(Radius.circular(25.0)),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(25.0)),
                           color: (isMaleSelected
                               ? Color.fromARGB(255, 87, 193,
                                   222) //color: (Color.fromARGB(255, 87, 193, 222)),
@@ -93,7 +94,7 @@ class _MainPageState extends State<MainPage> {
                             //const SizedBox(height: 30),
                             //Icon(Icons.male, size: 150),
                             ClipRRect(
-                              borderRadius: BorderRadius.only(
+                              borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(23.0),
                                 topRight: Radius.circular(23.0),
                               ),
@@ -104,7 +105,7 @@ class _MainPageState extends State<MainPage> {
                                 height: 157.5,
                               ),
                             ),
-                            Text(
+                            const Text(
                               "Male",
                               style: subheading,
                             ),
@@ -141,7 +142,7 @@ class _MainPageState extends State<MainPage> {
                         child: Column(
                           children: [
                             ClipRRect(
-                              borderRadius: BorderRadius.only(
+                              borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(23.0),
                                 topRight: Radius.circular(23.0),
                               ),
@@ -152,7 +153,7 @@ class _MainPageState extends State<MainPage> {
                               ),
                             ),
                             //Icon(Icons.female, size: 150),
-                            Text(
+                            const Text(
                               "Female",
                               style: subheading,
                             ),
@@ -183,7 +184,7 @@ class _MainPageState extends State<MainPage> {
                           ),
                           Text("$height", style: hewecolor),
                           // Add spacing between the value and the unit
-                          Text(
+                          const Text(
                             "Cm",
                             style: subheadinghwj, // Style for the unit "cm"
                           ), // Add spacing between the value and the unit
@@ -241,7 +242,8 @@ class _MainPageState extends State<MainPage> {
                       height: 200,
                       decoration: BoxDecoration(
                         border: Border.all(color: Colors.black),
-                        borderRadius: BorderRadius.all(Radius.circular(25.0)),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(25.0)),
                       ),
                       child: Column(
                         children: [
@@ -300,7 +302,7 @@ class _MainPageState extends State<MainPage> {
                   ),
                 ],
               ),
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
               ElevatedButton(
                 onPressed: calculateBMIAndNavigate,
                 style: ElevatedButton.styleFrom(

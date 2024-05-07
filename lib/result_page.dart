@@ -46,15 +46,15 @@ class ResultPage extends StatelessWidget {
               width: 300,
               height: 300,
             ),
-            SizedBox(height: 20),
-            Text(
+            const SizedBox(height: 20),
+            const Text(
               'Your BMI is:',
               style: TextStyle(
                 fontSize: 24.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 5.0),
+            const SizedBox(height: 5.0),
             Text(
               bmi.toStringAsFixed(2),
               style: const TextStyle(
@@ -63,7 +63,7 @@ class ResultPage extends StatelessWidget {
                 color: Color.fromARGB(255, 35, 13, 108),
               ),
             ),
-            SizedBox(height: 5.0),
+            const SizedBox(height: 5.0),
             Text(
               bmiStatus,
               style: TextStyle(
