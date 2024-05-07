@@ -309,10 +309,10 @@ class _MainPageState extends State<MainPage> {
                   backgroundColor: Color.fromARGB(255, 255, 255, 255),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20.0),
-                    side: BorderSide(color: Colors.black, width: 2.0),
+                    side: const BorderSide(color: Colors.black, width: 2.0),
                   ),
                   padding:
-                      EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+                      const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
                 ),
                 child: const Text(
                   'Calculate BMI',
