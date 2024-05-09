@@ -172,8 +172,8 @@ class _MainPageState extends State<MainPage> {
                       width: 170, // Set the width to 100 pixels
                       height: 200,
                       decoration: BoxDecoration(
-                        border: Border.all(color: Color.fromARGB(255, 0, 0, 0)),
-                        borderRadius: BorderRadius.all(Radius.circular(25.0)),
+                        border: Border.all(color: const Color.fromARGB(255, 0, 0, 0)),
+                        borderRadius: const BorderRadius.all(Radius.circular(25.0)),
                       ),
                       child: Column(
                         children: [
@@ -192,7 +192,7 @@ class _MainPageState extends State<MainPage> {
                               const SizedBox(width: 10),
                               FloatingActionButton(
                                 backgroundColor:
-                                    Color.fromARGB(255, 35, 13, 108),
+                                    const Color.fromARGB(255, 35, 13, 108),
                                 onPressed: () {
                                   setState(() {
                                     if (height > 80) height--;
@@ -206,12 +206,12 @@ class _MainPageState extends State<MainPage> {
                                   color: Colors.white,
                                   size: 40,
                                 ),
-                                shape: CircleBorder(),
+                                shape: const CircleBorder(),
                               ),
                               const SizedBox(width: 35),
                               FloatingActionButton(
                                 backgroundColor:
-                                    Color.fromARGB(255, 35, 13, 108),
+                                    const Color.fromARGB(255, 35, 13, 108),
                                 onPressed: () {
                                   setState(() {
                                     if (height < 200) height++;
@@ -260,7 +260,7 @@ class _MainPageState extends State<MainPage> {
                               const SizedBox(width: 10),
                               FloatingActionButton(
                                 backgroundColor:
-                                    Color.fromARGB(255, 35, 13, 108),
+                                    const Color.fromARGB(255, 35, 13, 108),
                                 onPressed: () {
                                   setState(() {
                                     if (weight > 20) weight--;
@@ -278,7 +278,7 @@ class _MainPageState extends State<MainPage> {
                               const SizedBox(width: 35),
                               FloatingActionButton(
                                 backgroundColor:
-                                    Color.fromARGB(255, 35, 13, 108),
+                                    const Color.fromARGB(255, 35, 13, 108),
                                 onPressed: () {
                                   setState(() {
                                     if (weight < 120) weight++;
@@ -305,7 +305,7 @@ class _MainPageState extends State<MainPage> {
               ElevatedButton(
                 onPressed: calculateBMIAndNavigate,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color.fromARGB(255, 255, 255, 255),
+                  backgroundColor: const Color.fromARGB(255, 255, 255, 255),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20.0),
                     side: const BorderSide(color: Colors.black, width: 2.0),
