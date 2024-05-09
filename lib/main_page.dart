@@ -51,7 +51,7 @@ class _MainPageState extends State<MainPage> {
                 ),
                 padding:
                     const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-                child: Row(
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
@@ -85,7 +85,7 @@ class _MainPageState extends State<MainPage> {
                           borderRadius:
                               const BorderRadius.all(Radius.circular(25.0)),
                           color: (isMaleSelected
-                              ? Color.fromARGB(255, 87, 193,
+                              ? const Color.fromARGB(255, 87, 193,
                                   222) //color: (Color.fromARGB(255, 87, 193, 222)),
                               : Colors.transparent),
                         ),
