@@ -99,7 +99,6 @@ class _MainPageState extends State<MainPage> {
                                 topRight: Radius.circular(23.0),
                               ),
                               child: Image.asset(
-                                //sithija6371
                                 'assets/male_image2.jpg', // Add the path to the male image asset
                                 width: 160,
                                 height: 157.5,
@@ -128,15 +127,15 @@ class _MainPageState extends State<MainPage> {
                         decoration: BoxDecoration(
                           border: Border.all(
                             color: isFemaleSelected
-                                ? Color.fromARGB(255, 103, 46, 55)
+                                ? const Color.fromARGB(255, 103, 46, 55)
                                 : Colors.black,
                             width: isFemaleSelected ? 3.5 : 1.5,
                           ),
                           //color: (Color.fromARGB(255, 87, 193, 222)),
-                          borderRadius: BorderRadius.all(Radius.circular(25.0)),
+                          borderRadius: const BorderRadius.all(Radius.circular(25.0)),
 
                           color: (isFemaleSelected
-                              ? Color.fromARGB(255, 182, 113, 125) // Pink color
+                              ? const Color.fromARGB(255, 182, 113, 125) // Pink color
                               : Colors.transparent),
                         ),
                         child: Column(
