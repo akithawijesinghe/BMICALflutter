@@ -201,7 +201,7 @@ class _MainPageState extends State<MainPage> {
                                   });
                                   print("height");
                                 },
-                                child: Icon(
+                                child: const Icon(
                                   Icons.remove,
                                   color: Colors.white,
                                   size: 40,
@@ -220,7 +220,7 @@ class _MainPageState extends State<MainPage> {
                                   });
                                   print("height");
                                 },
-                                child: Icon(
+                                child: const Icon(
                                   Icons.add,
                                   color: Colors.white,
                                   size: 40,
@@ -268,7 +268,7 @@ class _MainPageState extends State<MainPage> {
                                         height: height, weight: weight);
                                   });
                                 },
-                                child: Icon(
+                                child: const Icon(
                                   Icons.remove,
                                   color: Colors.white,
                                   size: 40,
@@ -286,7 +286,7 @@ class _MainPageState extends State<MainPage> {
                                         height: height, weight: weight);
                                   });
                                 },
-                                child: Icon(
+                                child: const Icon(
                                   Icons.add,
                                   color: Colors.white,
                                   size: 40,
