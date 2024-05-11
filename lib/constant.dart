@@ -46,8 +46,14 @@ const subheadinghak = TextStyle(
     fontWeight: FontWeight.bold,
     fontFamily: "Candara");
 
-    const subheadinghakwj = TextStyle(
+const subheadinghakwj = TextStyle(
     color: Color.fromARGB(255, 255, 4, 7),
     fontSize: 50,
+    fontWeight: FontWeight.bold,
+    fontFamily: "Serif");
+
+const subheadinghakp = TextStyle(
+    color: Color.fromARGB(255, 255, 255, 7),
+    fontSize: 30,
     fontWeight: FontWeight.bold,
     fontFamily: "Serif");
