@@ -1,12 +1,11 @@
-// result_page.dart
 import 'package:flutter/material.dart';
-import 'package:flutterbmi/main_page.dart';
 
 class ResultPage extends StatelessWidget {
   final double bmi;
   final bool isMaleSelected;
 
-  const ResultPage({required this.bmi, required this.isMaleSelected});
+  const ResultPage(
+      {required this.bmi, required this.isMaleSelected, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +29,7 @@ class ResultPage extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.home, size: 30),
           onPressed: () {
-            Navigator.pop(context, MainPage());
+            Navigator.pop(context);
           },
         ),
       ),

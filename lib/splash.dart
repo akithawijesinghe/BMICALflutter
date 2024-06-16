@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterbmi/main_page.dart';
+import 'main_page.dart';
 
 class Splash extends StatefulWidget {
   const Splash({Key? key}) : super(key: key);
@@ -12,24 +12,28 @@ class _SplashState extends State<Splash> {
   @override
   void initState() {
     super.initState();
-    _navigatetohome();
+    _navigateToHome();
   }
 
-  _navigatetohome() async {
+  _navigateToHome() async {
     await Future.delayed(const Duration(milliseconds: 3000), () {});
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => MainPage()));
+      context,
+      MaterialPageRoute(builder: (context) => const MainPage()),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white, 
       body: Center(
-          child: Image.asset(
-        'splash4.png',
-        width: 250,
-        height: 250,
-      )),
+        child: Image.asset(
+          'assets/splash6.png', 
+          width: 400,
+          height: 400,
+        ),
+      ),
     );
   }
 }

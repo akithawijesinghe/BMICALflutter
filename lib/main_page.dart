@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutterbmi/constant.dart';
-import 'package:flutterbmi/result_page.dart';
+import 'result_page.dart';
+import 'constant.dart';
 
 class MainPage extends StatefulWidget {
-  const MainPage({super.key});
+  const MainPage({Key? key}) : super(key: key);
 
   @override
   State<MainPage> createState() => _MainPageState();
@@ -11,30 +11,40 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int height = 150;
-  int weight = 60;
+  int weight = 50;
   bool isMaleSelected = false;
   bool isFemaleSelected = false;
-  bool isCalculateselect = false;
-  late double bmi = calculateBMI(height: height, weight: weight);
+  late double bmi;
+
+  @override
+  void initState() {
+    super.initState();
+    bmi = calculateBMI(height: height, weight: weight);
+  }
 
   void calculateBMIAndNavigate() {
     setState(() {
       bmi = calculateBMI(height: height, weight: weight);
     });
+
+    
+    print("BMI calculated: $bmi");
+    print("Navigating to ResultPage...");
+
     Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) =>
             ResultPage(bmi: bmi, isMaleSelected: isMaleSelected),
       ),
-    );
+    ).catchError((error) {
+      
+      print("Navigation error: $error");
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    //double screenWidth = MediaQuery.of(context).size.width;
-    //double screenHeight = MediaQuery.of(context).size.height;
-
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -46,8 +56,7 @@ class _MainPageState extends State<MainPage> {
               Container(
                 decoration: BoxDecoration(
                   color: Colors.blue,
-                  borderRadius:
-                      BorderRadius.circular(15.0), // Add border radius here
+                  borderRadius: BorderRadius.circular(15.0),
                 ),
                 padding:
                     const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
@@ -78,30 +87,31 @@ class _MainPageState extends State<MainPage> {
                         decoration: BoxDecoration(
                           border: Border.all(
                             color: isFemaleSelected
-                                ? Color.fromARGB(255, 5, 5, 87)
+                                ? const Color.fromARGB(255, 5, 5, 87)
                                 : Colors.black,
                             width: isMaleSelected ? 3.5 : 1.5,
                           ),
                           borderRadius:
                               const BorderRadius.all(Radius.circular(25.0)),
-                          color: (isMaleSelected
-                              ? const Color.fromARGB(255, 87, 193,
-                                  222) //color: (Color.fromARGB(255, 87, 193, 222)),
-                              : Colors.transparent),
+                          color: isMaleSelected
+                              ? const Color.fromARGB(255, 87, 193, 222)
+                              : Colors.transparent,
                         ),
                         child: Column(
                           children: [
-                            //const SizedBox(height: 30),
-                            //Icon(Icons.male, size: 150),
-                            ClipRRect(
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(23.0),
-                                topRight: Radius.circular(23.0),
-                              ),
-                              child: Image.asset(
-                                'assets/male_image2.jpg', // Add the path to the male image asset
-                                width: 160,
-                                height: 157.5,
+                            Hero(
+                              tag:
+                                  'male_image', 
+                              child: ClipRRect(
+                                borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(23.0),
+                                  topRight: Radius.circular(23.0),
+                                ),
+                                child: Image.asset(
+                                  'assets/male_image2.jpg',
+                                  width: 157,
+                                  height: 157.5,
+                                ),
                               ),
                             ),
                             const Text(
@@ -131,27 +141,29 @@ class _MainPageState extends State<MainPage> {
                                 : Colors.black,
                             width: isFemaleSelected ? 3.5 : 1.5,
                           ),
-                          //color: (Color.fromARGB(255, 87, 193, 222)),
-                          borderRadius: const BorderRadius.all(Radius.circular(25.0)),
-
-                          color: (isFemaleSelected
-                              ? const Color.fromARGB(255, 182, 113, 125) // Pink color
-                              : Colors.transparent),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(25.0)),
+                          color: isFemaleSelected
+                              ? const Color.fromARGB(255, 182, 113, 125)
+                              : Colors.transparent,
                         ),
                         child: Column(
                           children: [
-                            ClipRRect(
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(23.0),
-                                topRight: Radius.circular(23.0),
-                              ),
-                              child: Image.asset(
-                                'assets/female_image6.jpg',
-                                width: 160,
-                                height: 157.5,
+                            Hero(
+                              tag:
+                                  'female_image', 
+                              child: ClipRRect(
+                                borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(23.0),
+                                  topRight: Radius.circular(23.0),
+                                ),
+                                child: Image.asset(
+                                  'assets/female_image6.jpg',
+                                  width: 158.5,
+                                  height: 157.5,
+                                ),
                               ),
                             ),
-                            //Icon(Icons.female, size: 150),
                             const Text(
                               "Female",
                               style: subheading,
@@ -169,11 +181,13 @@ class _MainPageState extends State<MainPage> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
-                      width: 170, // Set the width to 100 pixels
+                      width: 163,
                       height: 200,
                       decoration: BoxDecoration(
-                        border: Border.all(color: const Color.fromARGB(255, 0, 0, 0)),
-                        borderRadius: const BorderRadius.all(Radius.circular(25.0)),
+                        border: Border.all(
+                            color: const Color.fromARGB(255, 0, 0, 0)),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(25.0)),
                       ),
                       child: Column(
                         children: [
@@ -182,15 +196,16 @@ class _MainPageState extends State<MainPage> {
                             style: subheadinghw,
                           ),
                           Text("$height", style: hewecolor),
-                          // Add spacing between the value and the unit
                           const Text(
                             "Cm",
-                            style: subheadinghwj, // Style for the unit "cm"
-                          ), // Add spacing between the value and the unit
+                            style: subheadinghwj,
+                          ),
                           Row(
                             children: [
                               const SizedBox(width: 10),
                               FloatingActionButton(
+                                heroTag:
+                                    'height_minus', 
                                 backgroundColor:
                                     const Color.fromARGB(255, 35, 13, 108),
                                 onPressed: () {
@@ -199,7 +214,6 @@ class _MainPageState extends State<MainPage> {
                                     bmi = calculateBMI(
                                         height: height, weight: weight);
                                   });
-                                  print("height");
                                 },
                                 child: const Icon(
                                   Icons.remove,
@@ -210,6 +224,8 @@ class _MainPageState extends State<MainPage> {
                               ),
                               const SizedBox(width: 35),
                               FloatingActionButton(
+                                heroTag:
+                                    'height_plus', 
                                 backgroundColor:
                                     const Color.fromARGB(255, 35, 13, 108),
                                 onPressed: () {
@@ -218,14 +234,13 @@ class _MainPageState extends State<MainPage> {
                                     bmi = calculateBMI(
                                         height: height, weight: weight);
                                   });
-                                  print("height");
                                 },
                                 child: const Icon(
                                   Icons.add,
                                   color: Colors.white,
                                   size: 40,
                                 ),
-                                shape: CircleBorder(),
+                                shape: const CircleBorder(),
                               ),
                             ],
                           ),
@@ -237,7 +252,7 @@ class _MainPageState extends State<MainPage> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
-                      width: 170, // Set the width to 100 pixels
+                      width: 165,
                       height: 200,
                       decoration: BoxDecoration(
                         border: Border.all(color: Colors.black),
@@ -253,12 +268,14 @@ class _MainPageState extends State<MainPage> {
                           Text("$weight", style: hewecolor),
                           const Text(
                             "Kg",
-                            style: subheadinghwj, // Style for the unit "cm"
+                            style: subheadinghwj,
                           ),
                           Row(
                             children: [
                               const SizedBox(width: 10),
                               FloatingActionButton(
+                                heroTag:
+                                    'weight_minus',
                                 backgroundColor:
                                     const Color.fromARGB(255, 35, 13, 108),
                                 onPressed: () {
@@ -273,10 +290,12 @@ class _MainPageState extends State<MainPage> {
                                   color: Colors.white,
                                   size: 40,
                                 ),
-                                shape: CircleBorder(),
+                                shape: const CircleBorder(),
                               ),
                               const SizedBox(width: 35),
                               FloatingActionButton(
+                                heroTag:
+                                    'weight_plus', 
                                 backgroundColor:
                                     const Color.fromARGB(255, 35, 13, 108),
                                 onPressed: () {
@@ -310,8 +329,8 @@ class _MainPageState extends State<MainPage> {
                     borderRadius: BorderRadius.circular(20.0),
                     side: const BorderSide(color: Colors.black, width: 2.0),
                   ),
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 20.0, vertical: 10.0),
                 ),
                 child: const Text(
                   'Calculate BMI',
@@ -330,11 +349,7 @@ class _MainPageState extends State<MainPage> {
     );
   }
 
-  void onHeightMinus() {
-    print("Height Minus");
-  }
-
-  double calculateBMI({required height, required int weight}) {
+  double calculateBMI({required int height, required int weight}) {
     return (weight / (height * height)) * 10000;
   }
 }
